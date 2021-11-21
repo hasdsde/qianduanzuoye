@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扬尘PM10智慧云平台</title>
+    <link rel="stylesheet" href="./css/check.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=kjZL0cxECDzGDffuFfXb65dBgrZtzRvT"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li><a href="./index.html"><img src="./images/indexHome.png" alt=""></a></li>
+            <li><a href="./实时监控.html"><img src="./images/shishijiankong.png" alt=""></a></li>
+            <li><a href="./检测.html"><img src="./images/shipinanniu.png" alt=""></a></li>
+            <li><a href="./"></a><img src="./images/baojingchaxun.png" alt=""></li>
+            <li><a href="./报表.html"><img src="./images/baobiao.png" alt=""></a></li>
+            <li><a href="./统计分析.html"><img src="./images/tongjifenxi.png" alt=""></a></li>
+        </ul>
+        <div class="login">
+            <span><img src="./images/人群.png" alt="">衡水</span>
+            <span><img src="./images/解锁.png" alt="">设备报警</span>
+            <span><img src="./images/信息.png" alt="">退出登录</span>
+        </div>
+    </div>
+    <div class="main">
+        <div class="position">
+            <p class="china"><img src="./images/文件.png" alt=""> 中国</p>
+            <p class="hebei" style="display: none;"><img src="./images/文件.png" alt="">河北省</p>
+            <p class="hengshui" style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/文件.png"
+                    alt="">衡水</p>
+            <ul class="local" style="display: none;">
+
+            </ul>
+        </div>
+        <script>
+            $.getJSON('./json数据/charts.json', chart => {
+                console.log(chart)
+                for (i = 0; i < chart.data.length; i++) {
+                    $('.local').append('<li><img src="./images/文件.png" alt="">' + chart.data[i].title + '<li>')
+                }
+            })
+            $('.china img').click(function () {
+                if ($('.china img').hasClass('open')) {
+                    $('.china img').attr('src', './images/open.png');
+                    $('.china img').attr('class', 'close');
+                    $('.hebei').css('display', 'none');
+                    $('.hengshui').css('display', 'none')
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.china img').attr('src', './images/close.png');
+                    $('.china img').attr('class', 'open');
+                    $('.hebei').css('display', 'block');
+                    
+
+                }
+            })
+            $('.hebei img').click(function () {
+                if ($('.hebei img').hasClass('open')) {
+                    $('.hebei img').attr('src', './images/open.png');
+                    $('.hebei img').attr('class', 'close');
+                    $('.hengshui').css('display', 'none')
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.hebei img').attr('src', './images/close.png');
+                    $('.hebei img').attr('class', 'open');
+                    $('.hengshui').css('display', 'block')
+                }
+            })
+            $('.hengshui img').click(function () {
+                if ($('.hengshui img').hasClass('open')) {
+                    $('.hengshui img').attr('src', './images/open.png');
+                    $('.hengshui img').attr('class', 'close');
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.hengshui img').attr('src', './images/close.png');
+                    $('.hengshui img').attr('class', 'open');
+                    $('.local').css('display', 'block');
+                }
+            })
+        </script>
+        <div id="map_container">
+
+        </div>
+        <script>
+            var map = new BMap.Map("map_container");
+            var point = new BMap.Point(116.404, 39.915);
+            map.centerAndZoom(point, 15);
+        </script>
+    </div>
+    <div class="info">
+        <div class="wea">
+            <iframe width="250" scrolling="no" height="90" frameborder="0" allowtransparency="true" src="https://i.tianqi.com?c=code&id=7&color=%23FFFFFF&bgc=%2300B0F0&bdc=%23&icon=1&site=12"></iframe>
+        <!-- 
+            http://wthrcdn.etouch.cn/weather_mini?city=%E7%9F%B3%E5%AE%B6%E5%BA%84
+            API就在这，等我有空了就做
+         -->
+        </div>
+    </div>
+    <div class="biaopan"><iframe src="./gauge-stage.html" frameborder="0" width="1000px" height="500px" scrolling='no'></iframe></div>
+    <div class="beian" style="width:100% ;text-align: center;margin-top: -30px;"><a style="color: rgb(193,193,193);font-size: 12px; text-decoration: none;margin-top: -30px; " href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
+</body>
+
+</html>

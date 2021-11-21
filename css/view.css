@@ -1,0 +1,41 @@
+body {
+    background-image: url(../images/pmBack.png);
+    overflow: hidden;
+}
+
+.nav {
+    margin-left: 550px;
+    width: auto;
+}
+
+.nav_ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.nav_ul img {
+    width: 90px;
+    height: 90px;
+}
+
+.login {
+    float: right;
+    color: white;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #041b25;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.login span {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}

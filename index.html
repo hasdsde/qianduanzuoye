@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>智慧环保监控平台</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=kjZL0cxECDzGDffuFfXb65dBgrZtzRvT">
+    </script>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+
+<body>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li><a href="./index.html">首页</a></li>
+            <li><a href="./检测.html">检测</a></li>
+            <li><a href="./实时监控.html">设备</a></li>
+            <li><a href="./报表.html">报表</a></li>
+            <li><a href="">历史监控</a></li>
+            <li><a href="">预警</a></li>
+            <li><a href="./统计分析.html">数据分析</a></li>
+            <li><a href="">系统管理</a></li>
+            <li><a href="">衡水</a></li>
+            </ula>
+    </div>
+    <div class="btn">
+        <ul class="btn_ul">
+            <li><a href=""><img src="./images/yangcheng.png" alt=""></a></li>
+            <li><a href=""><img src="./images/youyan.png" alt=""></a></li>
+            <li><a href=""><img src="./images/jiayouzhan.png" alt=""></a></li>
+            <li><a href=""><img src="./images/Voc.png" alt=""></a></li>
+            <li><a href=""><img src="./images/zhongdian.png" alt=""></a></li>
+            <li><a href=""><img src="./images/fenjidianbiao.png" alt=""></a></li>
+            <li><a href=""><img src="./images/huoxingtan.png" alt=""></a></li>
+            <li><a href=""><img src="./images/diankongshuju.png" alt=""></a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="map">
+            <ul class="map_ul">
+                <li><a href="">GIS系统</a></li>
+                <li><a href="">实时数据</a></li>
+                <li><a href="">历史信息</a></li>
+                <li><a href="">视频监控</a></li>
+            </ul>
+            <div id="map_container">
+
+            </div>
+            <script>
+                var map = new BMap.Map("map_container");
+                var point = new BMap.Point(116.404, 39.915);
+                map.centerAndZoom(point, 15);
+            </script>
+        </div>
+        <div class="info">
+            <div class="tittle">
+                <span>系统信息</span>标题
+                <select name="" id="">
+                    <option value="">预警</option>
+                </select>时间
+                <input type="text" name="" id="" placeholder="请选择时间日期范围">
+            </div>
+            <table cellpadding="10px" cellspacing="0px">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>标题</th>
+                        <th>内容</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 获取表格数据 -->
+                    
+                    <!-- 设置删除 -->
+                </tbody>
+                <script>
+                    $.getJSON('./json数据/table.json',info=>{
+                        for(i=0 ;i<info.data.length;i++){
+                            $('tbody').append('<tr class="tr">')
+                            $('tbody').append('<td>'+info.data[i].id+'</td>')
+                            $('tbody').append('<td>'+info.data[i].title+'</td>')
+                            $('tbody').append('<td>'+info.data[i].content+'</td>')
+                            $('tbody').append('<td>'+info.data[i].date+'</td>')
+                            $('tbody').append('<td><input type="button" name="" id="'+(i+1)+'" class="del" value="删除"></td>')
+                            $('tbody').append('</tr>')
+                        }
+                        console.log("准备完成")
+                        $('.del').click(function () {
+                            console.log('删除');
+                            console.log($(this).parent().empty())
+                        })
+                    });
+                </script>
+            </table>
+        </div>
+    </div>
+    <div class="beian" style="width:100% ;text-align: center;margin-top: -30px;"><a style="color: rgb(193,193,193);font-size: 12px; text-decoration: none; " href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
+</body>
+
+</html>

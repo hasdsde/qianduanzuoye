@@ -1,0 +1,109 @@
+    /* 整体 */
+    body {
+        background-image: url(../images/background.png);
+    }
+
+    /* 导航栏 */
+    .nav {
+        width: auto;
+        height: 100px;
+        margin-left: 525px;
+        margin-top: 35px;
+    }
+
+    .nav_ul li {
+        display: inline-block;
+        margin: 0 25px;
+    }
+
+    .nav_ul li a {
+        color: rgb(98, 143, 96);
+        text-decoration: none;
+        font-size: 28px;
+    }
+
+    /* 左侧按钮 */
+    .btn {
+        width: 500px;
+        display: inline-block;
+    }
+
+    .btn li {
+        display: inline-block;
+    }
+
+    .btn img {
+        width: 196px;
+        height: 169px;
+        margin: 12px;
+    }
+
+    /* 右侧大块 */
+    .right {
+        width: 1300px;
+        height: 800px;
+        display: inline-block;
+        vertical-align: text-bottom;
+    }
+
+    /* 地图 */
+    .map_ul a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .map_ul {
+        list-style: none;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .map_ul li {
+        display: inline-block;
+        font-size: 25px;
+        margin: 0 36px;
+    }
+
+    .map_ul a {
+        color: white;
+        padding: 5px 10px;
+        background-color: rgb(37, 53, 74);
+        border-radius: 4px;
+    }
+
+    #map_container {
+        width: 1300px;
+        height: 450px;
+    }
+
+    .right .info .tittle span {
+        color: #6fbcac;
+        font-size: 30px;
+        margin-right: 20px;
+    }
+
+    .right .info .tittle {
+        color: #6fbcac;
+        font-size: 12px;
+    }
+
+    /* 表格元素 */
+    table {
+        width: 1300px;
+        text-align: justify;
+
+    }
+
+    th {
+        font-size: 24px;
+        color: #8a8888;
+        border: 1px solid white;
+        margin: 0;
+        padding: 0;
+    }
+
+    td {
+        font-size: 20px;
+        color: #6db9aa;
+        border: 1px solid white;
+    }

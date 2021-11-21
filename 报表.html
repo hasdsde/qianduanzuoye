@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扬尘PM10智慧云平台</title>
+    <link rel="stylesheet" href="./css/chat.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=kjZL0cxECDzGDffuFfXb65dBgrZtzRvT">
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li><a href="./index.html"><img src="./images/indexHome.png" alt=""></a></li>
+            <li><a href="./实时监控.html"><img src="./images/shishijiankong.png" alt=""></a></li>
+            <li><a href="./检测.html"><img src="./images/shipinanniu.png" alt=""></a></li>
+            <li><a href="./"></a><img src="./images/baojingchaxun.png" alt=""></li>
+            <li><a href="./报表.html"><img src="./images/baobiao.png" alt=""></a></li>
+            <li><a href="./统计分析.html"><img src="./images/tongjifenxi.png" alt=""></a></li>
+        </ul>
+        <div class="login">
+            <span><img src="./images/人群.png" alt="">衡水</span>
+            <span><img src="./images/解锁.png" alt="">设备报警</span>
+            <span><img src="./images/信息.png" alt="">退出登录</span>
+        </div>
+    </div>
+    <div class="main">
+        <div class="position">
+            <p class="china"><img src="./images/文件.png" alt=""> 中国</p>
+            <p class="hebei" style="display: none;"><img src="./images/文件.png" alt="">河北省</p>
+            <p class="hengshui" style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/文件.png"
+                    alt="">衡水</p>
+            <ul class="local" style="display: none;">
+
+            </ul>
+        </div>
+        <script>
+            $.getJSON('./json数据/charts.json', chart => {
+                console.log(chart)
+                for (i = 0; i < chart.data.length; i++) {
+                    $('.local').append('<li><img src="./images/文件.png" alt="">' + chart.data[i].title + '<li>')
+                }
+            })
+            $('.china img').click(function () {
+                if ($('.china img').hasClass('open')) {
+                    $('.china img').attr('src', './images/open.png');
+                    $('.china img').attr('class', 'close');
+                    $('.hebei').css('display', 'none');
+                    $('.hengshui').css('display', 'none')
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.china img').attr('src', './images/close.png');
+                    $('.china img').attr('class', 'open');
+                    $('.hebei').css('display', 'block');
+
+
+                }
+            })
+            $('.hebei img').click(function () {
+                if ($('.hebei img').hasClass('open')) {
+                    $('.hebei img').attr('src', './images/open.png');
+                    $('.hebei img').attr('class', 'close');
+                    $('.hengshui').css('display', 'none')
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.hebei img').attr('src', './images/close.png');
+                    $('.hebei img').attr('class', 'open');
+                    $('.hengshui').css('display', 'block')
+                }
+            })
+            $('.hengshui img').click(function () {
+                if ($('.hengshui img').hasClass('open')) {
+                    $('.hengshui img').attr('src', './images/open.png');
+                    $('.hengshui img').attr('class', 'close');
+                    $('.local').css('display', 'none');
+                } else {
+                    $('.hengshui img').attr('src', './images/close.png');
+                    $('.hengshui img').attr('class', 'open');
+                    $('.local').css('display', 'block');
+                }
+            })
+        </script>
+        <div id="right">
+            <ul class="btns">
+                <li>设备基本信息查询</li>
+                <li>历史数据</li>
+                <li>设备校准</li>
+                <li>设备运维</li>
+            </ul>
+            <div class="info">
+                <div class="tittle">
+                    设备编码：<input type="text" name="" id="" placeholder="请输入设备码"> &nbsp; &nbsp;设备名称：&nbsp;&nbsp; <input
+                        type="text" name="" id="">&nbsp;&nbsp;&nbsp;起止时间:&nbsp;<input type="text" name="" id="">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/search.png" alt="">&nbsp;&nbsp;<img src="./images/reset.png"
+                        alt="">&nbsp;&nbsp;<img src="./images/down.png" alt="">
+                </div>
+                <table>
+                    <thead>
+                        <th>设备编码</th>
+                        <th>设备名称</th>
+                        <th>采集时间</th>
+                        <th>PM10浓度(μg/m3)</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <script>
+                    $.getJSON('./json数据/baobiao.json', data => {
+                        console.log(data);
+                        for (i = 0; i < data.data.length; i++) {
+                            $('tbody').append('<tr>');
+                            $('tbody').append('<td>' + data.data[i].deviceId + '</td>');
+                            $('tbody').append('<td>' + data.data[i].deviceName + '</td>');
+                            $('tbody').append('<td>' + data.data[i].update + '</td>');
+                            $('tbody').append('<td>' + data.data[i].concentration + '</td>');
+                            $('tbody').append('</tr>');
+                        }
+                    })
+                </script>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="beian" style="width:100% ;text-align: center;margin-top: -30px;"><a style="color: rgb(193,193,193);font-size: 12px; text-decoration: none; " href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
+</body>
+
+</html>

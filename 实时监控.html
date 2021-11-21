@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扬尘PM10智慧云平台</title>
+    <link rel="stylesheet" href="./css/view.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=kjZL0cxECDzGDffuFfXb65dBgrZtzRvT">
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li><a href="./index.html"><img src="./images/indexHome.png" alt=""></a></li>
+            <li><a href="./实时监控.html"><img src="./images/shishijiankong.png" alt=""></a></li>
+            <li><a href="./检测.html"><img src="./images/shipinanniu.png" alt=""></a></li>
+            <li><a href="./"></a><img src="./images/baojingchaxun.png" alt=""></li>
+            <li><a href="./报表.html"><img src="./images/baobiao.png" alt=""></a></li>
+            <li><a href="./统计分析.html"><img src="./images/tongjifenxi.png" alt=""></a></li>
+        </ul>
+        <div class="login">
+            <span><img src="./images/人群.png" alt="">衡水</span>
+            <span><img src="./images/解锁.png" alt="">设备报警</span>
+            <span><img src="./images/信息.png" alt="">退出登录</span>
+        </div>
+    </div>
+    <div class="main">
+        <script>
+             $.getJSON('./json数据/charts.json',data=>{
+                console.log(data)
+
+            });
+        </script>
+        <ul class="main_ul">
+            <li>
+                <div id="container01" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container02" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container03" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container04" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container05" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container06" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container07" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container08" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container09" style="height: 400px"></div>
+            </li>
+            <li>
+                <div id="container010" style="height: 400px"></div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container01");
+        var myChart1 = echarts.init(dom1);
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水中润商砼有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            title: {
+                        text: '衡水中润商砼有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [
+                {
+                title: {
+                        text: '健康人数统计',
+                        // subtext:'',
+                        x: 'center',
+                        y: '7px',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 25
+                }],
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container02");
+        var myChart1 = echarts.init(dom1);
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水亚东水电工程有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 150
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container03");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水瑞安建材有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 50
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container04");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水通达公路工程有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 75
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container05");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水金厦商品混凝土有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 82
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container06");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水普胜建材有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 92
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container07");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水苏兴商品砼有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 50
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container08");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水鑫垚建材有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 25
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container09");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水市冀安混凝土有限责任公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 188
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 0
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+
+
+    </script>
+    <script type="text/javascript">
+        var dom1 = document.getElementById("container010");
+        var myChart1 = echarts.init(dom1);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            title: {
+                        text: '衡水衡兴建材有限公司',
+                        // subtext:'',
+                        x: 'center',
+                        y: '300',
+                        textStyle: {
+                            color: '#3A7BD5',
+                            fontSize: 16
+                        },
+                        textAlign: 'left'
+                    },
+            series: [{
+                type: 'gauge',
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 40,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}μg/m3',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 10
+                }]
+            }]
+        };
+        setInterval(function () {
+            myChart1.setOption({
+                series: [{
+                    data: [{
+                        value: 10
+                    }]
+                }]
+            });
+        }, 2000);
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
+        }
+
+    </script>
+    <script>
+        $(function () {
+            console.log($('.main_ul li').length)
+            // $('.main_ul li').eq('0').css('background-color','red');
+            for(i=0;i<$('.main_ul li').length;i++){
+                $('.main_ul li').eq(i).css('position','absolute');
+                $('.main_ul li').eq(i).css('left',-770+i*400+'px');
+                if(i>4){
+                    $('.main_ul li').eq(i).css('top','500px');
+                    $('.main_ul li').eq(i).css('left',-770+(i-5)*400+'px');
+                }
+            }
+        })
+    </script>
+
+<div class="beian" style="width:100% ;text-align: center;margin-top:800px;"><a style="color: rgb(193,193,193);font-size: 12px; text-decoration: none; " href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+  "code": 0,
+  "data": {
+    "deviceId": 22345678,
+    "date": "2018-12-17 10:29:15",
+    "network": "在线",
+    "pm10": 50,
+    "companyName": "天津天运",
+    "deviceStatus": "正常",
+    "max": 200,
+    "min": 10,
+    "before": "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=e161ff16e4dde711f3df4ba4c686a57e/18d8bc3eb13533fab688dc3da9d3fd1f41345be2.jpg",
+    "after":"https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=e161ff16e4dde711f3df4ba4c686a57e/18d8bc3eb13533fab688dc3da9d3fd1f41345be2.jpg"
+  }
+}

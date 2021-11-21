@@ -1,0 +1,77 @@
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+
+    var option;
+
+
+
+    option = {
+      series: [{
+        type: 'gauge',
+        axisLine: {
+          lineStyle: {
+            width: 30,
+            color: [
+              [0.3, '#67e0e3'],
+              [0.7, '#37a2da'],
+              [1, '#fd666d']
+            ]
+          }
+        },
+        pointer: {
+          itemStyle: {
+            color: 'auto'
+          }
+        },
+        axisTick: {
+          distance: -30,
+          length: 8,
+          lineStyle: {
+            color: '#fff',
+            width: 2
+          }
+        },
+        splitLine: {
+          distance: -30,
+          length: 30,
+          lineStyle: {
+            color: '#fff',
+            width: 4
+          }
+        },
+        axisLabel: {
+          color: 'auto',
+          distance: 40,
+          fontSize: 20
+        },
+        detail: {
+          valueAnimation: true,
+          formatter: '{value}μg/m3',
+          color: 'auto'
+        },
+        data: [{
+          value: 50
+        }]
+      }]
+    };
+    setInterval(function () {
+      myChart.setOption({
+        series: [{
+          data: [{
+            value: 50
+          }]
+        }]
+      });
+    }, 2000);
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+  </script>
