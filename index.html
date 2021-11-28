@@ -83,18 +83,18 @@
                 <script>
                     $.getJSON('./json数据/table.json',info=>{
                         for(i=0 ;i<info.data.length;i++){
-                            $('tbody').append('<tr class="tr">')
-                            $('tbody').append('<td>'+info.data[i].id+'</td>')
-                            $('tbody').append('<td>'+info.data[i].title+'</td>')
-                            $('tbody').append('<td>'+info.data[i].content+'</td>')
-                            $('tbody').append('<td>'+info.data[i].date+'</td>')
-                            $('tbody').append('<td><input type="button" name="" id="'+(i+1)+'" class="del" value="删除"></td>')
-                            $('tbody').append('</tr>')
+                            $('tbody').append('<tr>')
+                            $('tbody tr:last-child').append('<td>'+info.data[i].id+'</td>')
+                            $('tbody tr:last-child').append('<td>'+info.data[i].title+'</td>')
+                            $('tbody tr:last-child').append('<td>'+info.data[i].content+'</td>')
+                            $('tbody tr:last-child').append('<td>'+info.data[i].date+'</td>')
+                            $('tbody tr:last-child').append('<td><input type="button" name="" id="'+(i+1)+'" class="del" value="删除"></td>')
+                            // $('tbody').append('</tr>')
                         }
                         console.log("准备完成")
                         $('.del').click(function () {
                             console.log('删除');
-                            console.log($(this).parent().empty())
+                            console.log($(this).parent().parent().remove())
                         })
                     });
                 </script>
