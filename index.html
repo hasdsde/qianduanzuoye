@@ -30,7 +30,7 @@
     </div>
     <div class="btn">
         <ul class="btn_ul">
-            <li><a href=""><img src="./images/yangcheng.png" alt=""></a></li>
+            <li><a href="./检测.html"><img src="./images/yangcheng.png" alt=""></a></li>
             <li><a href=""><img src="./images/youyan.png" alt=""></a></li>
             <li><a href=""><img src="./images/jiayouzhan.png" alt=""></a></li>
             <li><a href=""><img src="./images/Voc.png" alt=""></a></li>
@@ -52,9 +52,50 @@
 
             </div>
             <script>
+                // 地图初始化
                 var map = new BMap.Map("map_container");
-                var point = new BMap.Point(116.404, 39.915);
-                map.centerAndZoom(point, 15);
+                var point = new BMap.Point(115.775244, 37.712816);
+                map.centerAndZoom(point, 14);
+                // 设置坐标点
+                var marker = new BMap.Marker(new BMap.Point(115.775244, 37.712816)); // 创建点
+                var marker1 = new BMap.Marker(new BMap.Point(115.765244, 37.702816)); // 创建点
+                var marker2 = new BMap.Marker(new BMap.Point(115.792244, 37.708816)); // 创建点  
+                var marker3 = new BMap.Marker(new BMap.Point(115.762244, 37.715816)); // 创建点  
+                var marker4 = new BMap.Marker(new BMap.Point(115.748244, 37.713816)); // 创建点  
+                var marker5 = new BMap.Marker(new BMap.Point(115.756244, 37.714816)); // 创建点  
+                map.addOverlay(marker);  
+                map.addOverlay(marker1);  
+                map.addOverlay(marker2); 
+                map.addOverlay(marker3); 
+                map.addOverlay(marker4); 
+                map.addOverlay(marker5); 
+                // 设置标注
+                var point = new BMap.Point(115.765544, 37.714816);
+                var content = "衡水中润商什么有限公司";
+                var label = new BMap.Label(content, {       // 创建文本标注
+                    position: point,                          // 设置标注的地理位置
+                    offset: new BMap.Size(10, 20)           // 设置标注的偏移量
+                })  
+                // label.setStyle({                              // 设置label的样式
+                //     color: '#000',
+                //     fontSize: '30px',
+                //     border: '2px solid #1E90FF'
+                // })
+                map.addOverlay(label);
+                // 监听事件
+                label.addEventListener("click", function(){
+                    $.getJSON('./json数据/pmDeviceInfo.json', info => {
+                    console.log(info);
+                    alert("公司名称："+info.data.companyName+"\n"+
+                    "日期："+info.data.date+"\n"+
+                    "设备ID："+info.data.deviceId+"\n"+
+                    "设备状态："+info.data.deviceStatus+"\n"+
+                    "最大数据："+info.data.max+"\n"+
+                    "最小数据："+info.data.min+"\n"+
+                    "设备联网："+info.data.network+"\n"+
+                    "pm10："+info.data.pm10)
+                });
+        });
             </script>
         </div>
         <div class="info">
@@ -77,18 +118,20 @@
                 </thead>
                 <tbody>
                     <!-- 获取表格数据 -->
-                    
+
                     <!-- 设置删除 -->
                 </tbody>
                 <script>
-                    $.getJSON('./json数据/table.json',info=>{
-                        for(i=0 ;i<info.data.length;i++){
+
+                    $.getJSON('./json数据/table.json', info => {
+                        for (i = 0; i < info.data.length; i++) {
                             $('tbody').append('<tr>')
-                            $('tbody tr:last-child').append('<td>'+info.data[i].id+'</td>')
-                            $('tbody tr:last-child').append('<td>'+info.data[i].title+'</td>')
-                            $('tbody tr:last-child').append('<td>'+info.data[i].content+'</td>')
-                            $('tbody tr:last-child').append('<td>'+info.data[i].date+'</td>')
-                            $('tbody tr:last-child').append('<td><input type="button" name="" id="'+(i+1)+'" class="del" value="删除"></td>')
+                            $('tbody tr:last-child').append('<td>' + info.data[i].id + '</td>')
+                            $('tbody tr:last-child').append('<td>' + info.data[i].title + '</td>')
+                            $('tbody tr:last-child').append('<td>' + info.data[i].content + '</td>')
+                            $('tbody tr:last-child').append('<td>' + info.data[i].date + '</td>')
+                            $('tbody tr:last-child').append('<td><input type="button" name="" id="' + (i + 1) +
+                                '" class="del" value="删除"></td>')
                             // $('tbody').append('</tr>')
                         }
                         console.log("准备完成")
@@ -101,7 +144,9 @@
             </table>
         </div>
     </div>
-    <div class="beian" style="width:100% ;text-align: center;margin-top: -30px;"><a style="color: rgb(193,193,193);font-size: 12px; text-decoration: none; " href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
+    <div class="beian" style="width:100% ;text-align: center;margin-top: -30px;"><a
+            style="color: rgb(193,193,193);font-size: 12px; text-decoration: none; "
+            href="https://beian.miit.gov.cn/#/Integrated/index">冀ICP备2021024023号</a></div>
 </body>
 
 </html>
